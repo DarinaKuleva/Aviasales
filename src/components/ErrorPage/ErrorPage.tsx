@@ -1,11 +1,11 @@
 import * as React from 'react'
-import * as Styled from './styled'
+import { ErrorMessage } from './styled'
 
 const ErrorPage: React.FC = () => {
   return (
-    <Styled.Error>
+    <ErrorMessage>
       Не удалось загрузить билеты. Попробуйте позже.
-    </Styled.Error>
+    </ErrorMessage>
   )
 }
 

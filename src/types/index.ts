@@ -1,5 +1,4 @@
 import rootReducer from '../reducers'
-import { FilterOptions } from "../models";
 
 export type AppState = ReturnType<typeof rootReducer>
 
@@ -28,7 +27,7 @@ export interface Ticket {
   ]
 }
 
-export interface Tickets {
+export interface RequestedTicketsData {
   tickets?: Array<Ticket>,
   stop?: boolean
 }

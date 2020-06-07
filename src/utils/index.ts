@@ -19,10 +19,8 @@ export const getAmountStops = (stops: number): string => {
   }
 }
 
-const getFormattedTime = (time: number): string => {
-  if (time.toString().length === 1) return `0${time}`
-  else return time.toString()
-}
+const getFormattedTime = (time: number): string =>
+  time.toString().length === 1 ? `0${time}` : time.toString()
 
 export const getFlightInterval = (flightDate: string, flightTime: number): string => {
   const formattedFlightDate = new Date(flightDate)

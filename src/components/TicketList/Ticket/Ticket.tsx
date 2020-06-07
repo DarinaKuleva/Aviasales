@@ -51,4 +51,4 @@ const Ticket: React.FC<Props> = ({ticket}) => {
   )
 }
 
-export default (Ticket)
+export default Ticket

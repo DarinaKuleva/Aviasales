@@ -1,14 +1,14 @@
 import { FAILURE_TICKETS, REQUEST_TICKETS, SUCCESS_TICKETS, TicketsActionType } from '../actions/tickets'
-import { Tickets } from '../types'
+import { RequestedTicketsData } from '../types'
 
 type State = {
   loading: boolean,
-  data: Tickets,
+  data: RequestedTicketsData,
   isError: boolean
 }
 
 const initialState: State = {
-  loading: true,
+  loading: false,
   data: {
     tickets: [],
     stop: false
@@ -20,21 +20,19 @@ const tickets = (state: State = initialState, action: TicketsActionType): State 
   switch (action.type) {
     case REQUEST_TICKETS:
       return {
-        ...state,
+        ...initialState,
         loading: true
       }
 
     case SUCCESS_TICKETS:
       return {
-        ...state,
-        data: action.tickets,
-        loading: false
+        ...initialState,
+        data: action.tickets
       }
 
     case FAILURE_TICKETS:
       return {
-        ...state,
-        loading: false,
+        ...initialState,
         isError: action.isError
       }
 

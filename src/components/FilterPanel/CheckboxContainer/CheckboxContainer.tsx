@@ -47,7 +47,6 @@ const CheckboxContainer: React.FC<Props & HOCProps> = (props) => {
     <Styled.CheckboxContainer>
       <Styled.CustomCheckbox
         type="checkbox"
-        className="custom-checkbox"
         id={filter}
         name={filter}
         onChange={addFilter}

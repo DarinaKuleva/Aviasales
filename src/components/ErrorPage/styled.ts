@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import logo from '../../assets/logo.svg'
 
-export const Error = styled.p`
+export const ErrorMessage = styled.p`
   margin: 300px auto 0 auto;
   font-size: 17px;
   line-height: 20px;

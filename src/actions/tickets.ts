@@ -1,4 +1,4 @@
-import { Tickets } from '../types'
+import { RequestedTicketsData } from '../types'
 
 export const REQUEST_TICKETS = 'REQUEST_TICKETS'
 export const SUCCESS_TICKETS = 'SUCCESS_TICKETS'
@@ -10,7 +10,7 @@ export interface RequestTickets {
 
 export interface SuccessTickets {
   type: typeof SUCCESS_TICKETS,
-  tickets: Tickets
+  tickets: RequestedTicketsData
 }
 
 export interface FailureTickets {
@@ -22,7 +22,7 @@ export const requestTickets = (): RequestTickets => ({
   type: REQUEST_TICKETS
 })
 
-export const successTickets = (tickets: Tickets): SuccessTickets => ({
+export const successTickets = (tickets: RequestedTicketsData): SuccessTickets => ({
   type: SUCCESS_TICKETS,
   tickets
 })

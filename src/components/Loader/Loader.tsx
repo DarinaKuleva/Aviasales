@@ -1,6 +1,6 @@
 import * as React from 'react'
-import * as Styled from './styled'
 import { LoaderSizes } from '../../models'
+import * as Styled from './styled'
 
 interface Props {
   size: LoaderSizes

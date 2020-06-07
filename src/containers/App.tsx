@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { requestSearchId } from '../actions/searchId'
 import FilterPanel from '../components/FilterPanel'
 import SortPanel from '../components/SortPanel'
 import TicketList from '../components/TicketList'
 import ErrorPage from '../components/ErrorPage'
 import Loader from '../components/Loader'
-import { requestSearchId } from '../actions/searchId'
+import { LoaderSizes } from '../models'
 import { AppState } from '../types'
 import * as Styled from './styled'
-import { LoaderSizes } from "../models";
 
 const mapStateToProps = (state: AppState) => ({
   searchId: state.searchId.data.searchId,

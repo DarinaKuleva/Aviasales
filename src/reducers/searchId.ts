@@ -17,22 +17,20 @@ const searchId = (state: SearchIdState = initialState, action: SearchIdActionTyp
   switch (action.type) {
     case REQUEST_SEARCH_ID:
       return {
-        ...state,
+        ...initialState,
         loading: true
       }
 
     case FAILURE_SEARCH_ID:
       return {
-        ...state,
-        isError: action.isError,
-        loading: false
+        ...initialState,
+        isError: action.isError
       }
 
     case SUCCESS_SEARCH_ID:
       return {
-        data: action.searchId,
-        loading: false,
-        isError: false
+        ...initialState,
+        data: action.searchId
       }
 
     default:
