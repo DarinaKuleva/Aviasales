@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { SetSortingType } from '../../../actions/sorting'
+import { setSortingType } from '../../../actions/sorting'
 import { fieldSortOptions } from '../../../constants'
 import { SortOptions } from '../../../models'
 import { AppState } from '../../../types'
@@ -11,7 +11,7 @@ const mapStateToProps = (state: AppState) => ({
 })
 
 const mapDispatchToProps = {
-  SetSortingType
+  setSortingType
 }
 
 interface Props {
@@ -23,12 +23,12 @@ type HOCProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps
 const RadioButtonContainer: React.FC<Props & HOCProps> = (props) => {
   const {
     sortingType,
-    SetSortingType,
+    setSortingType,
     selectedSortType
   } = props
 
   const handleChangeSortType = () => {
-    SetSortingType(sortingType)
+    setSortingType(sortingType)
   }
 
   return (

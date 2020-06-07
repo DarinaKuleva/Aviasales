@@ -5,7 +5,7 @@ interface State {
   data: SortOptions | null
 }
 
-const initialState: State = {
+export const initialState: State = {
   data: null
 }
 
