@@ -6,8 +6,12 @@ interface Props {
 }
 
 export const CheckboxContainer = styled.div`
-  margin: 0 20px 20px 20px;
+  padding: 10px 0 10px 20px;
   height: 20px;
+  
+  :hover {
+    background-color: #F1FCFF;
+  }
 `
 
 export const Label = styled.label`
@@ -18,6 +22,7 @@ export const Label = styled.label`
   font-size: 13px;
   line-height: 20px;
   width: 100%;
+  cursor: pointer;
   
   :before {
     content: '';

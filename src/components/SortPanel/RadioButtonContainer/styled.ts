@@ -20,6 +20,7 @@ export const RadioButtonContainer = styled.div<Props>`
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #4A4A4A;
+  cursor: pointer;
   
   :hover {
     color: #2196F3;
@@ -56,4 +57,5 @@ export const Label = styled.label`
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+  cursor: pointer;
 `

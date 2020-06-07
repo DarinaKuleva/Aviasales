@@ -10,7 +10,7 @@ export const FilterPanel = styled.div`
 `
 
 export const Title = styled.h4`
-  margin: 20px 0;
+  margin: 20px 0 10px 0;
   text-align: center;
   font-weight: 600;
   font-size: 12px;
