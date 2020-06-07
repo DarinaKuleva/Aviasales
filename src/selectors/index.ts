@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { filterTicketList, sortTicketList } from '../utils/filteringAndSortingTicketList'
+import { filterTicketList, sortTicketList } from '../utils/ticketListTransformMethods'
 import { FIRST_TICKETS_AMOUNT } from '../constants'
 import { AppState, Ticket } from '../types'
 

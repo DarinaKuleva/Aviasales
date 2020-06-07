@@ -5,7 +5,7 @@ interface State {
   data: Array<FilterOptions>
 }
 
-const initialState: State = {
+export const initialState: State = {
   data: []
 }
 

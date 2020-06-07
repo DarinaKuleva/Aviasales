@@ -15,26 +15,24 @@ export const getAmountStops = (stops: number): string => {
     case 3:
       return '3 пересадки'
     default:
-      return 'без пересадок'
+      return `${stops} пересадки`
   }
 }
 
-const getFormattedTime = (time: number): string =>
+export const getFormattedTime = (time: number): string =>
   time.toString().length === 1 ? `0${time}` : time.toString()
 
-export const getFlightInterval = (flightDate: string, flightTime: number): string => {
+export const getFlightInterval = (flightDate: string, flightDuration: number): string => {
   const formattedFlightDate = new Date(flightDate)
 
-  const startFlightHours = formattedFlightDate.getUTCHours()
-  const startFlightMinutes = formattedFlightDate.getUTCMinutes()
-  const endFlightHours = (startFlightHours + Math.trunc(flightTime/60)) % 24
-  const endFlightMinutes = (startFlightMinutes + flightTime % 60) % 60
+  const departureHour = formattedFlightDate.getUTCHours()
+  const departureMinute = formattedFlightDate.getUTCMinutes()
+  const arrivalHourFromMinutes = Math.trunc((departureMinute + flightDuration % 60)/60)
+  const arrivalHour = (departureHour + Math.trunc(flightDuration/60)) % 24 + arrivalHourFromMinutes
+  const arrivalMinute = (departureMinute + flightDuration % 60) % 60
 
-  const formattedStartFlightHours = getFormattedTime(startFlightHours)
-  const formattedEndFlightHours = getFormattedTime(endFlightHours)
-  const formattedStartFlightMinutes = getFormattedTime(startFlightMinutes)
-  const formattedEndFlightMinutes = getFormattedTime(endFlightMinutes)
+  const departureTime = `${getFormattedTime(departureHour)}:${getFormattedTime(departureMinute)}`
+  const arrivalTime = `${getFormattedTime(arrivalHour)}:${getFormattedTime(arrivalMinute)}`
 
-  return `${formattedStartFlightHours}:${formattedStartFlightMinutes} 
-    - ${formattedEndFlightHours}:${formattedEndFlightMinutes} `
+  return `${departureTime} - ${arrivalTime}`
 }

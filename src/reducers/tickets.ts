@@ -7,7 +7,7 @@ type State = {
   isError: boolean
 }
 
-const initialState: State = {
+export const initialState: State = {
   loading: false,
   data: {
     tickets: [],

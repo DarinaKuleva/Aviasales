@@ -12,7 +12,7 @@ export interface ResetAllSorting {
   type: typeof RESET_ALL_SORTING
 }
 
-export const SetSortingType = (data: SortOptions): SetSortingType => ({
+export const setSortingType = (data: SortOptions): SetSortingType => ({
   type: SET_SORTING_TYPE,
   data
 })
