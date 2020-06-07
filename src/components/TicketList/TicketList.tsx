@@ -46,8 +46,8 @@ const TicketList: React.FC<HOCProps> = (props) => {
 
   return (
     <div>
-      {firstPartTickets?.map((ticket, index) =>
-        <React.Fragment key={index}>
+      {firstPartTickets?.map(ticket =>
+        <React.Fragment key={ticket.price.toString() + ticket.carrier}>
           <Ticket ticket={ticket}/>
         </React.Fragment>
       )}

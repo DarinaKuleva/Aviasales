@@ -19,8 +19,8 @@ const Ticket: React.FC<Props> = ({ticket}) => {
           alt={ticket.carrier}
         />
       </Styled.Header>
-      {ticket.segments.map((segment, index) =>
-        <Styled.Table key={index}>
+      {ticket.segments.map(segment =>
+        <Styled.Table key={segment.date}>
           <tbody>
             <tr>
               <Styled.THeader>

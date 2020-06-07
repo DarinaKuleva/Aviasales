@@ -5,7 +5,7 @@ import { Ticket } from '../types'
 export const filterTicketList = (tickets: Array<Ticket>, filterList: Array<FilterOptions>): Array<Ticket> => {
   if (filterList && (!filterList.length || filterList.some(filter => filter === FilterOptions.All)))
     return tickets
-  else return (
+  return (
     Object.values(tickets)
       .filter(ticket => ticket.segments
       .filter(segment => filterList
