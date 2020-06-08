@@ -1,7 +1,7 @@
 import { SortOptions, FilterOptions } from '../models'
 
 export const SEGMENT_AMOUNT = 2
-export const FIRST_TICKETS_AMOUNT = 5
+export const DISPLAYED_TICKETS_AMOUNT = 5
 
 export const fieldSortOptions = {
   [SortOptions.Cheap]: 'Самый дешевый',

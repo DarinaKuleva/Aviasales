@@ -1,23 +1,27 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { requestTickets } from '../../actions/tickets'
-import { getFirstPartTickets } from '../../selectors'
+import { getVisibleTicketsAmount } from '../../actions/visibleTicketsAmount'
+import { getVisibleTickets } from '../../selectors'
+import { DISPLAYED_TICKETS_AMOUNT } from '../../constants'
 import Ticket from './Ticket'
 import Loader from '../Loader'
-import { AppState } from '../../types'
 import { LoaderSizes } from '../../models'
-import { ErrorMessage } from './styled'
+import { AppState } from '../../types'
+import * as Styled from './styled'
 
 const mapStateToProps = (state: AppState) => ({
   searchId: state.searchId.data.searchId,
   isLoadingTickets: state.tickets.loading,
   isErrorTickets: state.tickets.isError,
-  tickets: state.tickets.data?.tickets,
-  firstPartTickets: getFirstPartTickets(state)
+  tickets: state.tickets.data.tickets,
+  visibleTicketsAmount: state.visibleTicketsAmount.amount,
+  visibleTickets: getVisibleTickets(state)
 })
 
 const mapDispatchToProps = {
-  requestTickets
+  requestTickets,
+  getVisibleTicketsAmount
 }
 
 type HOCProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps
@@ -26,10 +30,12 @@ const TicketList: React.FC<HOCProps> = (props) => {
   const {
     isLoadingTickets,
     isErrorTickets,
-    firstPartTickets,
     requestTickets,
     searchId,
-    tickets
+    tickets,
+    visibleTickets,
+    getVisibleTicketsAmount,
+    visibleTicketsAmount
   } = props
 
   React.useEffect(() => {
@@ -39,18 +45,30 @@ const TicketList: React.FC<HOCProps> = (props) => {
 
   if (isLoadingTickets) return <Loader size={LoaderSizes.Small}/>
   if (isErrorTickets) return (
-    <ErrorMessage>
+    <Styled.ErrorMessage>
       Не удалось загрузить билеты. Перезагрузите страницу или повторите попытку позднее.
-    </ErrorMessage>
+    </Styled.ErrorMessage>
   )
 
   return (
     <div>
-      {firstPartTickets?.map(ticket =>
+      {visibleTickets?.map(ticket =>
         <React.Fragment key={ticket.price.toString() + ticket.carrier}>
           <Ticket ticket={ticket}/>
         </React.Fragment>
       )}
+      <Styled.ButtonContainer>
+        {visibleTicketsAmount < Number(tickets?.length) &&
+          <Styled.Button onClick={() => getVisibleTicketsAmount(DISPLAYED_TICKETS_AMOUNT)}>
+            Показать еще 5 билетов
+          </Styled.Button>
+        }
+        {visibleTicketsAmount > DISPLAYED_TICKETS_AMOUNT &&
+          <Styled.Button onClick={() => getVisibleTicketsAmount(-DISPLAYED_TICKETS_AMOUNT)}>
+            Скрыть 5 билетов
+          </Styled.Button>
+        }
+      </Styled.ButtonContainer>
     </div>
   )
 }

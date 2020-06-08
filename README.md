@@ -1,4 +1,4 @@
-## Форма отправки сообщений
+## Тестовое задание Aviasales
 
 #####Запуск проекта
 ``
@@ -11,4 +11,12 @@ npm start
 
 #####Задание
 
-https://www.notion.so/Frontend-4263b61293224088b7c3f929b761f9e3
+https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend
+
+#####Описание взаимодействия с сервером
+
+https://github.com/KosyanMedia/test-tasks/blob/master/aviasales_frontend/server.md
+
+#####Макет
+
+https://www.figma.com/file/4fQe1lEbo4DARjvNtaU0uJ/Aviasales-test-task

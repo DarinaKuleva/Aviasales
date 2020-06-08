@@ -1,4 +1,9 @@
-import { FAILURE_TICKETS, REQUEST_TICKETS, SUCCESS_TICKETS, TicketsActionType } from '../actions/tickets'
+import {
+  FAILURE_TICKETS,
+  REQUEST_TICKETS,
+  SUCCESS_TICKETS,
+  TicketsActionType
+} from '../actions/tickets'
 import { RequestedTicketsData } from '../types'
 
 type State = {
